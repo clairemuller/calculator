@@ -14,8 +14,12 @@
   height: 100px;
 }
 
+.row {
+  height: 100px;
+  width: 400px;
+}
+
 .button {
   border: 1px solid black;
-  width: 30%;
-  height: 20%;
+  display: inline;
 }
