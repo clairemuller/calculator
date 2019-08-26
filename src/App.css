@@ -1,25 +1,28 @@
 .App {
-  text-align: center;
-}
+  text-align: center; }
 
 .calculator {
   border: 3px solid black;
   width: 400px;
   height: 500px;
-  display: inline-block;
-}
+  display: inline-block; }
 
 .screen {
   background-color: rgba(0, 0, 0, 0.2);
-  height: 100px;
-}
+  height: 100px; }
 
 .row {
   height: 100px;
-  width: 400px;
-}
+  width: 400px; }
 
 .button {
+  width: 24%;
+  height: 100%;
   border: 1px solid black;
-  display: inline;
-}
+  display: inline-block; }
+  .button :hover {
+    cursor: pointer; }
+  .button p {
+    line-height: 4; }
+
+/*# sourceMappingURL=App.css.map */
