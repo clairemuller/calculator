@@ -12,7 +12,7 @@
   height: 100px; }
 
 .row {
-  height: 100px;
+  height: 80px;
   width: 400px; }
 
 .button {
@@ -23,6 +23,13 @@
   .button :hover {
     cursor: pointer; }
   .button p {
-    line-height: 4; }
+    line-height: 1;
+    font-size: 25px; }
+
+#input {
+  background-color: blue; }
+
+#action {
+  background-color: grey; }
 
 /*# sourceMappingURL=App.css.map */
