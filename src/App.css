@@ -14,14 +14,14 @@
 .row {
   height: 80px;
   width: 400px; }
+  .row :hover {
+    cursor: pointer; }
 
 .button {
   width: 24%;
   height: 100%;
   border: 1px solid black;
   display: inline-block; }
-  .button :hover {
-    cursor: pointer; }
   .button p {
     line-height: 1;
     font-size: 25px; }

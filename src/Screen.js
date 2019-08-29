@@ -4,7 +4,7 @@ import './App.css';
 function Screen() {
   return (
     <div className="screen">
-      I'm a screen
+      
     </div>
   );
 }

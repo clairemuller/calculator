@@ -17,6 +17,9 @@
 .row {
   height: 80px;
   width: 400px;
+  :hover {
+    cursor: pointer;
+  }
 }
 
 .button {
@@ -24,9 +27,6 @@
   height: 100%;
   border: 1px solid black;
   display: inline-block;
-  :hover {
-    cursor: pointer;
-  }
   p {
     line-height: 1;
     font-size: 25px;
