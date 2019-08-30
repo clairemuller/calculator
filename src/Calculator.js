@@ -8,50 +8,76 @@ class Calculator extends React.Component {
     super(props)
 
     this.state = {
-      number: 0
+      output: 0,
+      input: 0,
+      action: null
     }
   }
 
   handleClick = (type, label) => {
+    // console.log(`type: ${type}, label: ${label}`);
+    // type is either 'action' or 'input'
     if (type === 'action') {
-      if (label === 'AC') {
-        this.setState({ number: 0 })
-      } else {
-        this.doMath(label)
-      }
+      this.setAction(label)
     } else if (type === 'input') {
-      this.sendToScreen(label)
-
+      this.doMath(label)
     }
   }
 
-  sendToScreen = (label) => {
-
+  setAction = (label)=> {
+    if (label === 'AC') {
+      // clears screen
+      this.setState({ output: 0, input: 0, action: null })
+    } else {
+      this.setState({ action: label })
+    }
   }
 
   doMath = (label) => {
-    switch (label) {
-      case '+':
+    console.log(label);
+    console.log(this.state);
+  }
 
-        break;
-      case '-':
+  add = () => {
 
-        break;
-      case 'x':
+  }
 
-        break;
-      case '':
+  subtract = () => {
 
-        break;
-      default:
+  }
 
+  multiply = () => {
+
+  }
+
+  divide = () => {
+
+  }
+
+  // this works
+  percent = () => {
+    let newOutput = this.state.output;
+    newOutput /= Math.pow(10, 2);
+    this.setState({ output: newOutput })
+  }
+
+  // this works
+  switchSign = () => {
+    let newOutput;
+    if (this.state.output > 0) {
+      newOutput = -this.state.output;
+    } else if (this.state.output < 0) {
+      newOutput = Math.abs(this.state.output);
+    } else {
+      newOutput = 0;
     }
+    this.setState({ output: newOutput })
   }
 
   render() {
     return (
       <div className="calculator">
-        <Screen />
+        <Screen output={this.state.output} />
         <div className='row' id='row1'>
           <Button label='AC' type='action' onClick={this.handleClick} />
           <Button label='+/-' type='action' onClick={this.handleClick} />

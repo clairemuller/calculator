@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
 
-function Screen() {
-  return (
-    <div className="screen">
-      
-    </div>
-  );
+class Screen extends React.Component {
+  render() {
+    return (
+      <div className="screen">
+        <p>{this.props.output}</p>
+      </div>
+    )
+  }
 }
 
 export default Screen;
