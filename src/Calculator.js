@@ -18,40 +18,82 @@ class Calculator extends React.Component {
     // console.log(`type: ${type}, label: ${label}`);
     // type is either 'action' or 'input'
     if (type === 'action') {
-      this.setAction(label)
+      this.setState({ action: label })
+      this.handleAction(label);
     } else if (type === 'input') {
-      this.doMath(label)
+      this.handleInput(label);
     }
   }
 
-  setAction = (label)=> {
-    if (label === 'AC') {
-      // clears screen
-      this.setState({ output: 0, input: 0, action: null })
+  handleAction = (label) => {
+    let newOutput = this.state.output;
+    switch (label) {
+      case 'AC':
+        this.clearScreen();
+        break;
+      case '+':
+        this.add(newOutput);
+        break;
+      case '-':
+        this.subtract(newOutput);
+        break;
+      case 'x':
+        this.multiply(newOutput)
+        break;
+      case '÷':
+        this.divide(newOutput)
+        break;
+      case '%':
+        this.percent(newOutput)
+        break;
+      case '+/-':
+        this.switchSign(newOutput)
+        break;
+      default:
+        return newOutput;
+    }
+  }
+
+  handleInput = (label) => {
+    // if there's math to be done
+    if (this.state.action != null) {
+      this.doMath(label);
     } else {
-      this.setState({ action: label })
+      let newOutput;
+
+      if (this.state.output !== 0) {
+        newOutput = this.state.output;
+        newOutput = newOutput.toString()
+        newOutput += label.toString();
+      } else {
+        newOutput = label;
+      }
+      this.setState({ output: newOutput })
     }
   }
 
   doMath = (label) => {
-    console.log(label);
-    console.log(this.state);
+    // let newOutput = this.state.output;
   }
 
-  add = () => {
-
+  clearScreen = () => {
+    this.setState({ output: 0, input: 0, action: null })
   }
 
-  subtract = () => {
-
+  add = (newOutput) => {
+    this.setState({ output: newOutput });
   }
 
-  multiply = () => {
-
+  subtract = (newOutput) => {
+    this.setState({ output: newOutput });
   }
 
-  divide = () => {
+  multiply = (newOutput) => {
+    this.setState({ output: newOutput });
+  }
 
+  divide = (newOutput) => {
+    this.setState({ output: newOutput });
   }
 
   // this works
